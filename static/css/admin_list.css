@@ -1,0 +1,71 @@
+/*=reset Start*/
+html{color:#fff;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;font-variant:normal;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+input,textarea,select{*font-size:100%;}
+legend{color:#000;}
+/*=reset End*/
+
+body{
+    padding: 20px 0 0 20px;
+}
+.top-bar{
+    border-radius: 10px;
+    background: #454545;
+    border: 1px solid #888;
+    position: relative;
+    width: 1000px;
+    padding: 10px 30px;
+    margin-bottom: 30px;
+}
+.top-bar h5{
+    font-size: 12px;
+    color: #999;
+    line-height: 28px;
+}
+.top-bar .breadcrumbs{
+    font-size: 10px;
+    color: #999;
+}
+#add_btn{
+    font-size: 36px;
+    font-weight: bold;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    border: 1px solid #888;
+    border-radius: 50%;
+    display: block;
+    width: 40px;
+    height: 40px;
+    color: #ccc;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+}
+#add_btn:hover{
+    color: #fff;
+    border-color: #fff;
+}
+.table{
+    padding: 15px 30px;
+    width: 1000px;
+}
+.table table{
+    width: 100%;
+}
+.table th,.table tr{
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+}

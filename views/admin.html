@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta content="description">
+
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/admin_list.css">
+</head>
+
+<body>
+<div id="topBar">
+    <a href="javascript:void(0)" id="logout">您好，<span><%= res_data.name%></span></br>退出登录</a>
+</div>
+<nav>
+    <div class="menu-item">
+        <h6>管理员管理</h6>
+        <ul>
+            <li data-url="update_pwd">修改密码</li>
+            <li data-url="admin_list">管理员列表</li>
+            <li data-url="admin_add">添加管理员</li>
+        </ul>
+    </div>
+    <div class="menu-item">
+        <h6>项目管理</h6>
+        <ul>
+            <li data-url="project_list">项目列表</li>
+            <li data-url="project_add">添加项目</li>
+        </ul>
+    </div>
+</nav>
+<div id="main">
+    <iframe frameborder="0" style="width: 100%;height: 100%"></iframe>
+</div>
+
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/jquery.md5.js"></script>
+<script src="../../js/kindeditor/kindeditor-all-min.js"></script>
+<script src="../../js/kindeditor/lang/zh-CN.js"></script>
+<script src="../../js/admin.js"></script>
+</body>
+</html>

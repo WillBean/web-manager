@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Edit</title>
+    <link rel="stylesheet" href="../../css/admin_list.css">
+    <link rel="stylesheet" href="../../css/fileUpload/jquery.fileupload.css">
+    <link rel="stylesheet" href="../../css/fileUpload/jquery.fileupload-ui.css">
+
+</head>
+<body>
+<div class="top-bar">
+    <h5>当前位置</h5>
+    <div class="breadcrumbs"><span>项目管理</span> - <span>添加项目</span></div>
+</div>
+<form class="admin-input" onsubmit="return false">
+    <div class="input">
+        <label for="cnName">项目名（CN)：</label>
+        <input type="text" id="cnName" placeholder="请输入项目名" required>
+    </div>
+    <div class="input">
+        <label for="engName">项目名（ENG)：</label>
+        <input type="text" id="engName" placeholder="请输入项目名" >
+    </div>
+    <div class="input">
+        <label for="title">标题：</label>
+        <input type="text" id="title" placeholder="请输入标题" >
+    </div>
+    <div class="input">
+        <label for="introduction">简介：</label>
+        <input type="text" id="introduction" placeholder="请输入简介" >
+    </div>
+    <div class="input">
+        <label for="description">详细描述：</label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+    </div>
+
+    <div class="info-container">
+        <h6>PROJECT INFO</h6>
+        <a href="javascript:void(0)" class="add_info">+</a>
+        <ul></ul>
+        <table id="image-list">
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <input type="file" id="imgUpload" class="imgUpload" multiple>
+    <div class="images_list"></div>
+
+    <input type="submit" class="add-submit" value="添加">
+
+</form>
+
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/kindeditor/kindeditor-all-min.js"></script>
+<script src="../../js/fileUpload/jquery.ui.widget.js"></script>
+<script src="../../js/fileUpload/jquery.iframe-transport.js"></script>
+<script src="../../js/fileUpload/jquery.fileupload.js"></script>
+
+<script src="../../js/admin/project_add.js"></script>
+</body>
+</html>

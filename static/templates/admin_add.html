@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Add</title>
+    <link rel="stylesheet" href="../../css/admin_list.css">
+</head>
+<body>
+
+<div class="top-bar">
+    <h5>当前位置</h5>
+    <div class="breadcrumbs"><span>管理员管理</span> - <span>添加管理员</span></div>
+</div>
+<form class="admin-input" onsubmit="return false">
+    <div class="input">
+        <label for="name">用户名：</label>
+        <input type="text" id="name" placeholder="请输入用户名" required>
+    </div>
+    <div class="input">
+        <label for="pwd">密码：</label>
+        <input type="password" id="pwd" placeholder="请输入密码" required>
+    </div>
+    <div class="input">
+        <label for="pwd">确认密码：</label>
+        <input type="password" id="pwd2" placeholder="请确认密码" required>
+    </div>
+    <input type="submit" class="add-submit" value="添加">
+</form>
+
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/admin/admin_add.js"></script>
+</body>
+</html>

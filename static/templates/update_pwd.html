@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Edit</title>
+    <link rel="stylesheet" href="../../css/admin_list.css">
+</head>
+<body>
+<div class="top-bar">
+    <h5>当前位置</h5>
+    <div class="breadcrumbs"><span>管理员管理</span> - <span>修改密码</span></div>
+</div>
+<form onsubmit="return false">
+    <div class="input">
+        <label for="old_pwd">旧密码：</label>
+        <input type="password" id="old_pwd" placeholder="请输入旧密码" required>
+    </div>
+    <div class="input">
+        <label for="pwd">新密码：</label>
+        <input type="password" id="pwd" placeholder="请输入新密码" required>
+    </div>
+    <div class="input">
+        <label for="pwd">确认密码：</label>
+        <input type="password" id="pwd2" placeholder="请确认密码" required>
+    </div>
+    <input type="submit" class="add-submit" value="添加">
+</form>
+
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/jquery.md5.js"></script>
+<script src="../../js/admin/update_pwd.js"></script>
+
+</body>
+</html>

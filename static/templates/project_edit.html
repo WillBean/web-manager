@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Edit</title>
+    <link rel="stylesheet" href="../../css/admin_list.css">
+</head>
+<body>
+<div class="top-bar">
+    <h5>当前位置</h5>
+    <div class="breadcrumbs"><span>项目管理</span> - <span>编辑项目</span></div>
+</div>
+<form class="admin-input" onsubmit="return false">
+    <div class="input">
+        <label for="cnName">项目名（CN)：</label>
+        <input type="text" id="cnName" placeholder="请输入项目名" required>
+    </div>
+    <div class="input">
+        <label for="engName">项目名（ENG)：</label>
+        <input type="text" id="engName" placeholder="请输入项目名" >
+    </div>
+    <div class="input">
+        <label for="title">标题：</label>
+        <input type="text" id="title" placeholder="请输入标题" >
+    </div>
+    <div class="input">
+        <label for="introduction">简介：</label>
+        <input type="text" id="introduction" placeholder="请输入简介" >
+    </div>
+    <div class="input">
+        <label for="description">详细描述：</label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+    </div>
+
+    <div class="info-container">
+        <h6>PROJECT INFO</h6>
+        <a href="javascript:void(0)" class="add_info">+</a>
+        <ul></ul>
+    </div>
+
+    <div class="images_list"></div>
+
+    <input type="submit" class="submit_btn" value="保存">
+
+</form>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/kindeditor/kindeditor-all-min.js"></script>
+<script src="../../js/kindeditor/lang/zh-CN.js"></script>
+<script src="../../js/admin/project_edit.js"></script>
+</body>
+</html>
