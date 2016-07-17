@@ -252,6 +252,7 @@ exports.fileUploadUploadImg = function (req, res) {
         util.resFail(res, global.NOTLOGIN_ERROR, "尚未登录");
         return;
     }
+    var resImgages = [];
     var form = new formidable.IncomingForm();
     form.keepExtensions = true;
     form.uploadDir = __dirname + '/./static/uploads';
@@ -259,25 +260,32 @@ exports.fileUploadUploadImg = function (req, res) {
         if (err) {
             throw err;
         }
-        var image = files['files[]'];
-        var path = image.path;
-        path = path.replace(/\\/g, '/');
-        var url = path.substr(path.lastIndexOf('uploads'), path.length);
+        console.log(files);
+        for( var img in files){
+            var image = files[img];
+            console.log(image)
 
-        var info = {
-            "error": 0,
-            "url": url,
-            "name": image.name,
-            "size" : (image.size/1024).toFixed(2) + "KB"
-        };
-        if (image.type.indexOf('image') < 0) {
-            info.error = 1;
-            info.message = "TYPE ERROR";
-            util.resFail(res, global.NOTLOGIN_ERROR, "类型错误",info);
-            return;
+            var path = image.path;
+            path = path.replace(/\\/g, '/');
+            var url = path.substr(path.lastIndexOf('uploads'), path.length);
+
+            var info = {
+                "error": 0,
+                "url": url,
+                "name": image.name,
+                "size" : (image.size/1024).toFixed(2) + "KB"
+            };
+            if (image.type.indexOf('image') < 0) {
+                info.error = 1;
+                info.message = "TYPE ERROR";
+                util.resFail(res, global.NOTLOGIN_ERROR, "类型错误",info);
+                return;
+            }
+            resImgages.push(info);
         }
 
-        res.send(info);
+
+        res.send(resImgages);
     });
 };
 
@@ -525,7 +533,7 @@ exports.ProjectUpdate = function (req, res) {
                 callback(null);
             })
         }, function (callback) {
-            if (query.infoList.length > 0) {
+            if (query.infoList && query.infoList.length > 0) {
                 var count = 0;
                 query.infoList.forEach(function (info) {
                     models.ProjectInfo.update({
@@ -540,10 +548,11 @@ exports.ProjectUpdate = function (req, res) {
                         }
                     })
                 });
+            }else {
+                callback(null);
             }
-            callback(null);
         }, function (callback) {
-            if (query.delList.length > 0) {
+            if (query.delList && query.delList.length > 0) {
                 var count = 0;
                 query.delList.forEach(function (id) {
                     models.ProjectInfo.destroy({where: {id: id}}).then(function () {
@@ -552,6 +561,39 @@ exports.ProjectUpdate = function (req, res) {
                         }
                     })
                 })
+            }else {
+                callback(null);
+            }
+        }, function(callback){console.log(query)
+            if( query.delImgList && query.delImgList.length > 0){console.log(12313)
+                var count = 0;
+                query.delImgList.forEach(function (id) {
+                    models.Image.destroy({where: {id: id}}).then(function () {
+                        if (++count == query.delImgList.length) {
+                            callback(null);
+                        }
+                    })
+                })
+            }else{
+                callback(null);
+            }
+        }, function(callback){
+            if(query.addImgList && query.addImgList.length > 0){
+                var count = 0;
+                query.addImgList.forEach(function (img) {
+                    models.Image.create({
+                        name: img.name,
+                        url: img.url,
+                        projectId: query.id,
+                        size: img.size
+                    }).then(function () {
+                        if (++count == query.addImgList.length) {
+                            callback(null);
+                        }
+                    })
+                })
+            }else{
+                callback(null);
             }
         }
     ], function (err) {
@@ -599,16 +641,31 @@ exports.ProjectGetInfo = function (req, res) {
     }
     var id = req.query.id;
     var rdata = {};
-    models.Project.find({where: {id: id}}).then(function (pData) {
-        Object.assign(rdata, pData.dataValues);
-        models.ProjectInfo.findAll({
-            where: {projectId: id}
-        }).then(function (data) {
-            rdata.InfoList = data;
-            console.log(rdata);
-            util.resSuccess(res, "请求成功", rdata);
+    async.parallel([function(callback){
+        models.Project.find({where: {id: id}}).then(function (pData) {
+            Object.assign(rdata, pData.dataValues);
+            models.ProjectInfo.findAll({
+                where: {projectId: id}
+            }).then(function (data) {
+                rdata.InfoList = data;
+                callback(null);
+            })
+        });
+    },function(callback){
+        models.Image.findAll({where: { projectId : id}}).then(function(data){
+            rdata.imagesList = data;
+            callback(null);
         })
-    });
+    }],function(err){
+        if(err){
+            console.log(12123)
+            util.resFail(res, global.LOGIN_ERROR, "项目信息获取出错");
+        }else{
+            console.log(11111)
+            util.resSuccess(res, "请求成功", rdata);
+        }
+    })
+
 
 };
 //登录操作记录？
