@@ -14,15 +14,15 @@ $(function(){
         var data = {
             name : name,
             pwd : $.md5(pwd)
-        };
+        };console.log(data.pwd)
         $.ajax({
             type :'get',
-            url: 'login',
+            url: '/admin/login',
             data: data,
             success: function(res){
                 console.log(res);
                 if(res.res_code === 0){
-                    window.location = '/admin'
+                    window.location = '/admin/admin'
                 }
             }
         })

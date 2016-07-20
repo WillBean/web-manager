@@ -1,0 +1,343 @@
+/* 创客源码（22vd.com）做最好的织梦整站模板下载网站 */
+@charset "utf-8";
+
+/* CSS Document */
+
+
+
+/* !- Animate on scroll*/
+
+
+
+/* Scale Up animation */
+
+@-webkit-keyframes mk_scale {
+ 0% {
+ -webkit-transform: scale(0.3);
+ opacity: 0.1;
+}
+ 100% {
+ -webkit-transform: scale(1);
+ opacity: 1;
+}
+}
+ @-moz-keyframes mk_scale {
+ 0% {
+ -moz-transform: scale(0.3);
+ opacity: 0.1;
+}
+ 100% {
+ -moz-transform: scale(1);
+ opacity: 1;
+}
+}
+ @-o-keyframes mk_scale {
+ 0% {
+ -o-transform: scale(0.3);
+ opacity: 0.1;
+}
+ 100% {
+ -o-transform: scale(1);
+ opacity: 1;
+}
+}
+ @keyframes mk_scale {
+ 0% {
+ transform: scale(0.3);
+ opacity: 0.1;
+}
+ 100% {
+ transform: scale(1);
+ opacity: 1;
+}
+}
+
+
+
+
+
+/* Fade In animation */
+
+@-webkit-keyframes mk_fade {
+ 0% {
+ opacity: 0.1;
+}
+ 100% {
+ opacity: 1;
+}
+}
+ @-moz-keyframes mk_fade {
+ 0% {
+ opacity: 0.1;
+}
+ 100% {
+ opacity: 1;
+}
+}
+ @-o-keyframes mk_fade {
+ 0% {
+ opacity: 0.1;
+}
+ 100% {
+ opacity: 1;
+}
+}
+ @keyframes mk_fade {
+ 0% {
+ opacity: 0.1;
+}
+ 100% {
+ opacity: 1;
+}
+}
+
+
+
+/* Left to Right animation */
+
+@-webkit-keyframes mk_left_to_right {
+ 0% {
+ -webkit-transform: translate(-20px, 0);
+ opacity: 0;
+}
+ 100% {
+ -webkit-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @-moz-keyframes mk_left_to_right {
+ 0% {
+ -moz-transform: translate(-20px, 0);
+ opacity: 0;
+}
+ 100% {
+ -moz-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @-o-keyframes mk_left_to_right {
+ 0% {
+ -o-transform: translate(-20px, 0);
+ opacity: 0;
+}
+ 100% {
+ -o-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @keyframes mk_left_to_right {
+ 0% {
+ transform: translate(-20px, 0);
+ opacity: 0;
+}
+ 100% {
+ transform: translate(0, 0);
+ opacity: 1;
+}
+}
+
+
+
+/* Right To Left animation */
+
+@-webkit-keyframes mk_right_to_left {
+ 0% {
+ -webkit-transform: translate(20px, 0);
+ opacity: 0;
+}
+ 100% {
+ -webkit-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @-moz-keyframes mk_right_to_left {
+ 0% {
+ -moz-transform: translate(20px, 0);
+ opacity: 0;
+}
+ 100% {
+ -moz-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @-o-keyframes mk_right_to_left {
+ 0% {
+ -o-transform: translate(20px, 0);
+ opacity: 0;
+}
+ 100% {
+ -o-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @keyframes mk_right_to_left {
+ 0% {
+ transform: translate(20px, 0);
+ opacity: 0;
+}
+ 100% {
+ transform: translate(0, 0);
+ opacity: 1;
+}
+}
+
+
+
+/* Bottom to Top animation */
+
+@-webkit-keyframes mk_bottom_to_top {
+ 0% {
+ -webkit-transform: translate(0, 20px);
+ opacity: 0;
+}
+ 100% {
+ -webkit-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @-moz-keyframes mk_bottom_to_top {
+ 0% {
+ -moz-transform: translate(0, 20px);
+ opacity: 0;
+}
+ 100% {
+ -moz-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @-o-keyframes mk_bottom_to_top {
+ 0% {
+ -o-transform: translate(0, 20px);
+ opacity: 0;
+}
+ 100% {
+ -o-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @keyframes mk_bottom_to_top {
+ 0% {
+ transform: translate(0, 20px);
+ opacity: 0;
+}
+ 100% {
+ transform: translate(0, 0);
+ opacity: 1;
+}
+}
+
+
+
+/* Top to Bottom animation */
+
+@-webkit-keyframes mk_top_to_bottom {
+ 0% {
+ -webkit-transform: translate(0, -20px);
+ opacity: 0;
+}
+ 100% {
+ -webkit-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @-moz-keyframes mk_top_to_bottom {
+ 0% {
+ -moz-transform: translate(0, -20px);
+ opacity: 0;
+}
+ 100% {
+ -moz-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @-o-keyframes mk_top_to_bottom {
+ 0% {
+ -o-transform: translate(0, -20px);
+ opacity: 0;
+}
+ 100% {
+ -o-transform: translate(0, 0);
+ opacity: 1;
+}
+}
+ @keyframes mk_top_to_bottom {
+ 0% {
+ transform: translate(0, -20px);
+ opacity: 0;
+}
+ 100% {
+ transform: translate(0, 0);
+ opacity: 1;
+}
+}
+/*------------ init ------------*/
+
+.no-touch.cssanimations .anim_emt {
+	visibility: hidden;
+}
+/*
+
+.ios8 .anim_emt,
+
+.no-touch .anim_emt {
+
+    visibility: hidden;
+
+}
+
+.no-csstransitions .anim_emt,
+
+.ie-mobile .anim_emt {
+
+	visibility: visible;
+
+}
+
+*/
+
+
+
+
+
+.anim_emt.start-animation.scale_up {
+	-webkit-animation: mk_scale 0.5s 1 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	-moz-animation: mk_scale 0.5s 1 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	-o-animation: mk_scale 0.5s 1 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	animation: mk_scale 0.5s 1 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	visibility: visible;
+}
+.anim_emt.start-animation.fade_in {
+	-webkit-animation: mk_fade 0.7s 1 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	-moz-animation: mk_fade 0.7s 1 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	-o-animation: mk_fade 0.7s 1 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	animation: mk_fade 0.7s 1 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	visibility: visible;
+}
+.anim_emt.start-animation.r_to_l {
+	-webkit-animation: mk_right_to_left 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	-moz-animation: mk_right_to_left 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	-o-animation: mk_right_to_left 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	animation: mk_right_to_left 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	visibility: visible;
+}
+.anim_emt.start-animation.l_to_r {
+	-webkit-animation: mk_left_to_right 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	-moz-animation: mk_left_to_right 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	-o-animation: mk_left_to_right 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	animation: mk_left_to_right 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	visibility: visible;
+}
+.anim_emt.start-animation.t_to_b {
+	-webkit-animation: mk_top_to_bottom 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	-moz-animation: mk_top_to_bottom 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	-o-animation: mk_top_to_bottom 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	animation: mk_top_to_bottom 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	visibility: visible;
+}
+.anim_emt.start-animation.b_to_t {
+	-webkit-animation: mk_bottom_to_top 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	-moz-animation: mk_bottom_to_top 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	-o-animation: mk_bottom_to_top 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	animation: mk_bottom_to_top 0.6s 1 cubic-bezier(0.77, 0, 0.175, 1);
+	visibility: visible;
+}

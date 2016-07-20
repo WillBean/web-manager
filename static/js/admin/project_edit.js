@@ -137,7 +137,7 @@
                     break
                 }
                 infoList[i] = {
-                    id : list.find('.del_btn').attr('id').substr(8),
+                    id : list.find('.del_btn').attr('id') ? list.find('.del_btn').attr('id').substr(8) : null,
                     title : list.find('.info_title').val().trim(),
                     content : list.find('.info_content').val().trim(),
                     index : list.find('.info_index').val().trim()
@@ -169,7 +169,7 @@
                     }
 
                     $.ajax({
-                        type: 'post', url: '/fileUpload_uploadImg', data: fd, processData:false,
+                        type: 'post', url: '/admin/fileUpload_uploadImg', data: fd, processData:false,
                         contentType: false,
                         success: function (res) {
                             console.log(res);
@@ -186,7 +186,7 @@
 
             function update(){
                 console.log(data);
-                $.ajax({type: 'get', url: '/project_update?id='+id, data: data,
+                $.ajax({type: 'get', url: '/admin/project_update?id='+id, data: data,
                     success: function(res){
                         console.log(res);
                         if( res.res_code === 0){
@@ -251,7 +251,7 @@
     $(function () {
         var id = getSearchObj().id;
 
-        $.getJSON('/get_project_info?id='+id+"&random="+Math.random(),function(data){
+        $.getJSON('/admin/get_project_info?id='+id+"&random="+Math.random(),function(data){
             fillInputText(data.data,id);
         });
 

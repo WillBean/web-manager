@@ -17,7 +17,7 @@
             };
             $.ajax({
                 type: 'get',
-                url: '/admin_update_pwd',
+                url: '/admin/admin_update_pwd',
                 data: data,
                 success: function(res){
                     console.log(res);

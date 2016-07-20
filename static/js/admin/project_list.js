@@ -28,11 +28,11 @@
 
         $('.btn_del').click(function () {
             if(confirm("确定删除吗？")){
-                $.get("/project_delete?id="+$(this).attr('id').substr(8),function(res){
+                $.get("/admin/project_delete?id="+$(this).attr('id').substr(8),function(res){
                     console.log(res);
                     if(res.res_code === 0){
                         alert("成功删除");
-                        $.getJSON("/get_project_list?random="+Math.random(),function(data){
+                        $.getJSON("/admin/get_project_list?random="+Math.random(),function(data){
                             renderAdminList(data.data.list,data.data.c_time,data.data.u_time);
                         });
                     }
@@ -45,7 +45,7 @@
         })
     }
     $(function(){
-        $.getJSON("/get_project_list?random="+Math.random(),function(data){
+        $.getJSON("/admin/get_project_list?random="+Math.random(),function(data){
             renderAdminList(data.data.list,data.data.c_time,data.data.u_time);
         });
 

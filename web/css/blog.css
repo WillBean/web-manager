@@ -1,0 +1,87 @@
+/* 创客源码（22vd.com）做最好的织梦整站模板下载网站 */
+.blog_cont {
+	float: left;
+	padding-right: 280px;
+}
+.blog_list_item {
+	margin-bottom: 30px;
+}
+.body img, .blog_list_item img {
+	width: 100%;
+	height: auto;
+}
+.blog_list_item .info {
+	padding: 40px;
+}
+.blog_list_item .info hr {
+	margin-left: 0;
+	margin-bottom: 16px;
+}
+.no-touch .blog_list_item a:hover .title {
+	color: #c8161e;
+}
+.no-touch .blog_list_item a:hover hr {
+	width: 100px;
+}
+/*-----------sidebar----------*/
+.sidebar {
+	position: fixed;
+	top: 120px;
+	right: 10%;
+	width: 240px;/*  background-color: #fff;*/
+}
+.tags li {
+	float: left;
+}
+.tags a {
+	padding: 10px;
+	margin: 0 4px 4px 0;
+	background-color: #fff;
+	color: #666;
+	border-radius: 4px;
+}
+.no-touch .tags a:hover {
+	background-color: #c8161e;
+	color: #fff;
+}
+/*-----------sidebar----------*/
+.body {
+	background-color: #fff;
+	padding: 40px;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+}
+/*-------------- responsive --------------*/
+@media (min-width: 1600px) {
+.sidebar {
+	right: 15%;
+}
+}
+@media (max-width: 1200px) {
+.blog_top {
+	margin-top: 20px;
+}
+.blog_list_item .info {
+	padding: 30px;
+}
+.sidebar {
+	top: 100px;
+	right: 8%;
+}
+.body {
+	padding: 30px;
+}
+}
+@media (max-width: 767px) {
+.blog_top {
+	margin-top: 30px;
+}
+.blog_cont {
+	padding-right: 0;
+}
+.blog_list_item .info {
+	padding: 20px;
+}
+.body {
+	padding: 8%;
+}
+}

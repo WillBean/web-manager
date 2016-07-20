@@ -445,7 +445,7 @@ exports.ProjectAdd = function (req, res) {
         async.parallel([
             function(callback){
                 var count = 0;
-                if (query.infoList.length > 0) {
+                if (query.infoList && query.infoList.length > 0) {
                     query.infoList.forEach(function (info) {
                         models.ProjectInfo.create({
                             title: info.title,
@@ -463,7 +463,7 @@ exports.ProjectAdd = function (req, res) {
                 }
             },
             function(callback){
-                if( query.imgList.length > 0){
+                if( query.imgList && query.imgList.length > 0){
                     var count = 0;
                     query.imgList.forEach(function (img) {
                         models.Image.create({
@@ -477,6 +477,8 @@ exports.ProjectAdd = function (req, res) {
                             }
                         })
                     })
+                }else {
+                    callback(null);
                 }
             }
         ],function(err){console.log(12311)
@@ -536,17 +538,30 @@ exports.ProjectUpdate = function (req, res) {
             if (query.infoList && query.infoList.length > 0) {
                 var count = 0;
                 query.infoList.forEach(function (info) {
-                    models.ProjectInfo.update({
-                        title: info.title,
-                        content: info.content,
-                        index: info.index
-                    }, {
-                        where: {id: info.id}
-                    }).then(function () {
-                        if (++count == query.infoList.length) {
-                            callback(null);
-                        }
-                    })
+                    if(info.id){
+                        models.ProjectInfo.update({
+                            title: info.title,
+                            content: info.content,
+                            index: info.index
+                        }, {
+                            where: {id: info.id}
+                        }).then(function () {
+                            if (++count == query.infoList.length) {
+                                callback(null);
+                            }
+                        })
+                    }else {
+                        models.ProjectInfo.create({
+                            title: info.title,
+                            content: info.content,
+                            index: info.index
+                        }).then(function(){
+                            if (++count == query.infoList.length) {
+                                callback(null);
+                            }
+                        })
+                    }
+
                 });
             }else {
                 callback(null);
@@ -669,3 +684,17 @@ exports.ProjectGetInfo = function (req, res) {
 
 };
 //登录操作记录？
+
+//用户操作
+exports.GetProjectWithParams = function(req, res){
+    var count = parseInt(req.query.count) || 4 ;
+    var order = req.query.order || 'id desc';
+
+    models.Project.findAll({
+        order: order,
+        limit: count,
+        offset: 0
+    }).then(function(data){
+        util.resSuccess(res, "请求成功", data);
+    })
+};

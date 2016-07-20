@@ -30,7 +30,7 @@
             };
             $.ajax({
                 type: 'get',
-                url: '/admin_add',
+                url: '/admin/admin_add',
                 data: data,
                 success: function(res){
                     console.log(res);

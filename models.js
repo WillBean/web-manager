@@ -124,3 +124,11 @@ this.Image.belongsTo(this.Project,{
 //sequelize.sync().then(function(){
 //    console.log('success');
 //});
+//sequelize.sync({force: true}).then(function(){
+//    console.log('success');
+//    this.Admin.create({
+//        name : 'admin',
+//        pwd : '21232f297a57a5a743894a0e4a801fc3',
+//        rights : 5
+//    })
+//});

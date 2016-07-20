@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- HTML5 Boilerplate -->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+    <title>筑邦臣 Jubons  | 未找到页面</title>
+  
+  <meta name="description" content="中国最资深的设计顾问及工程管理企业之一，2005年由张海涛先生创建并主持，总部设立于中国北京，分公司覆盖于香港、上海、杭州、深圳、大连等城市。">
+  <meta name="keywords" content="jubons, 筑邦臣, 建筑设计, 室内设计, 装饰设计, 工程管理">
+    
+  <meta name="MobileOptimized" content="320">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="http://jubons.cn/wordpress/wp-content/themes/jubons/fonts/icomoon/style.css">
+  <link rel="stylesheet" href="http://jubons.cn/wordpress/wp-content/themes/jubons/css/animate-element.css">
+  <link rel="stylesheet" href="http://jubons.cn/wordpress/wp-content/themes/jubons/css/flexslider.css">
+  <link rel="stylesheet" href="http://jubons.cn/wordpress/wp-content/themes/jubons/css/style.css">
+  <link rel="stylesheet" href="http://jubons.cn/wordpress/wp-content/themes/jubons/css/blog.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/html5shiv.js"></script>
+    <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/respond.min.js"></script>
+  <![endif]-->
+  
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/jquery-1.9.1.min.js"></script>
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/jquery.easing.1.3.js"></script>
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/jquery.scrollTo.min.js"></script>
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/jquery.mousewheel.min.js"></script>
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/jquery.viewport.js"></script>
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/animate-elements.js"></script>
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/jquery.flexslider-min.js"></script>
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/modernizr.custom.49256.js"></script>
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/transition.js"></script>
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/collapse.js"></script>
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/scrollspy.js"></script>
+  <script src="http://jubons.cn/wordpress/wp-content/themes/jubons/js/site.js"></script>
+<!--  -->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?6771b82705c7f2e5be2308ae70493ab5";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+</head>
+<body>
+  <header class="anim_emt t_to_b">
+  <nav>
+    <a class="menu_btn icon-menu"></a>
+    <ul id="nav" class="trans">
+      <li class="trans4 projects"><a href="http://jubons.cn/projects" class="trans">PROJECTS 案例</a>
+      </li>
+      <li class="trans3 services"><a href="http://jubons.cn/services" class="trans">SERVICES 服务</a>
+      </li>
+      <li class="trans2 about"><a href="http://jubons.cn/about" class="trans">ABOUT US 关于我们</a>
+      </li>
+      <li class="trans1 join-us"><a href="http://jubons.cn/join-us" class="trans">JOIN US 加入我们</a>
+      </li>
+      <li class="trans blog"><a href="http://jubons.cn/blog" class="trans">BLOG</a>
+      </li>
+    </ul>
+  </nav>
+
+  <a href="http://jubons.cn" id="logo">
+    <img src="http://jubons.cn/wordpress/wp-content/themes/jubons/images/logo.png" class="trans" alt="logo">
+    <h5 class="trans">HOME</h5>
+  </a>
+  
+
+  </header>
+
+  <section class="mt50">
+    <div class="wrap hwrap">
+      <h1 class="mb10 c_red">404</h1>
+      <h3>Sorry! Page not Found!</h3>
+    </div>
+  </section>
+	
+<footer class="full vertical_obj bg_white mscroll">
+    <div class="vertical_cont contact anima_3d_top">
+      <div class="wrap">
+        <h2 class="c_red">GET IN TOUCH</h2>
+        <ul class="clearfix">
+          <li class="add">
+            <a href="http://j.map.baidu.com/NzjYm" target="_blank" class="trans">
+              <span class="icon icon-location c_red"></span>
+              <h5 class="trans">北京市通州万达写字楼A座</h5>
+            </a>
+          </li>
+          <li class="tel">
+            <a href="tel:86-10-84243319" target="_blank" class="trans">
+              <span class="icon icon-phone c_red"></span>
+              <h5 class="trans">86-10-84243319</h5>
+            </a>
+          </li>
+          <li class="mail">
+            <a href="mailto:MARKET@JUBONS.CN" target="_blank" class="trans">
+              <span class="icon icon-mail c_red"></span>
+              <h5 class="trans">MARKET@JUBONS.CN</h5>
+            </a>
+          </li>
+          <li class="qq">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=625960816&site=qq&menu=yes" target="_blank" class="trans">
+              <span class="icon icon-qq c_red"></span>
+              <h5 class="trans">在线咨询</h5>
+            </a>
+          </li>
+        </ul>
+<!--        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=625960816&site=qq&menu=yes" class="qqbtn btn_red icon-qq trans" title="点击这里给我发消息">在线咨询</a>-->
+      </div>
+    </div>
+
+    <div class="btm bg_red">
+      <ul id="botm_nav" class="wrap">
+        <li><a href="http://jubons.cn/projects" class="trans">案例<br>PROJECTS</a>
+        </li>
+        <li><a href="http://jubons.cn/services" class="trans">服务<br>SERVICES</a>
+        </li>
+        <li><a href="http://jubons.cn/about" class="trans">关于我们<br>ABOUT US</a>
+        </li>
+        <li><a href="http://jubons.cn/join-us" class="trans">加入我们<br>JOIN US</a>
+        </li>
+        <li><a href="http://jubons.cn/blog" class="trans">博客<br>BLOG</a>
+        </li>
+      </ul>
+
+      <ul class="icp wrap">
+        <li>
+          <span>© 2015 JUBONS</span>
+        </li>
+        <li>
+          <a href="http://www.miibeian.gov.cn" target="_blank">京ICP备05073764号-2</a>
+        </li>
+        <li>
+          <a href="http://teamthink.cn" target="_blank">SITE BY: TEAMTHINK</a>
+        </li>
+      </ul>
+
+      <div class="icons bg_red">
+        <a href="http://weibo.com/u/5017836158" target="_blank" class="icon-weibo trans"></a>
+        <a href="javascript:" class="jsbtn icon-iconfont-qrcode trans" data-target="#qr-site"></a>
+        <a href="javascript:" class="jsbtn icon-wechat trans" data-target="#qr-wechat"></a>
+
+        <div id="qr-site" class="qrcode trans">
+          <img src="http://jubons.cn/wordpress/wp-content/themes/jubons/images/qrcode-site.png" alt="">
+        </div>
+
+        <div id="qr-wechat" class="qrcode trans">
+          <img src="http://jubons.cn/wordpress/wp-content/themes/jubons/images/qrcode-wechat.png" alt="">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="bg_mask" class="pop_bg"></div>
+
+</body>
+</html>

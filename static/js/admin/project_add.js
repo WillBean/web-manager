@@ -22,7 +22,7 @@
                 }
                 $('.add-submit').attr('disabled',true);
                 $.ajax({
-                    type: 'post', url: '/fileUpload_uploadImg', data: fd, processData:false,
+                    type: 'post', url: '/admin/fileUpload_uploadImg', data: fd, processData:false,
                     contentType: false,
                     success: function (res) {
                         console.log(res);
@@ -101,7 +101,7 @@
             if (flag) {
                 $('.add-submit').attr('disabled', true);
                 $.ajax({
-                    type: 'get', url: '/project_add', data: data,
+                    type: 'get', url: '/admin/project_add', data: data,
                     success: function (res) {
                         console.log(res);
                         if (res.res_code === 0) {

@@ -9,7 +9,7 @@ $(function(){
                     if(confirm("确定要退出吗？")){
                         $.ajax({
                             type :'get',
-                            url: 'logout',
+                            url: '/admin/logout',
                             success: function(res){
                                 console.log(res);
                                 if(res.res_code === 0){
