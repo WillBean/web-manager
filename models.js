@@ -10,7 +10,10 @@ var sequelize = new Sequelize(
     {
         'dialect' : 'mysql',
         'host' : 'localhost',
-        'port' : '3306'
+        'port' : '3306',
+        dialectOptions: {
+            charset: 'utf8'
+        }
     }
 );
 
@@ -124,11 +127,16 @@ this.Image.belongsTo(this.Project,{
 //sequelize.sync().then(function(){
 //    console.log('success');
 //});
-//sequelize.sync({force: true}).then(function(){
+
+// var _this = this;
+// sequelize.sync({force: true}).then(function(){
 //    console.log('success');
-//    this.Admin.create({
+//
+//    _this.Admin.create({
 //        name : 'admin',
 //        pwd : '21232f297a57a5a743894a0e4a801fc3',
 //        rights : 5
+//    }).then(function () {
+//        console.log('create success')
 //    })
-//});
+// });

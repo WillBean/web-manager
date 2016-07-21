@@ -264,9 +264,9 @@
 	content: "\e601";
 }
 
-.icon-record:before {
-	content: "\e610";
-}
+/*.icon-record:before {*/
+	/*content: "\e610";*/
+/*}*/
 
 .icon-ellipsis:before {
 	content: "\e603";

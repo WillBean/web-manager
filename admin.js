@@ -261,7 +261,7 @@ exports.fileUploadUploadImg = function (req, res) {
             throw err;
         }
         console.log(files);
-        for( var img in files){
+        for (var img in files) {
             var image = files[img];
             console.log(image)
 
@@ -273,12 +273,12 @@ exports.fileUploadUploadImg = function (req, res) {
                 "error": 0,
                 "url": url,
                 "name": image.name,
-                "size" : (image.size/1024).toFixed(2) + "KB"
+                "size": (image.size / 1024).toFixed(2) + "KB"
             };
             if (image.type.indexOf('image') < 0) {
                 info.error = 1;
                 info.message = "TYPE ERROR";
-                util.resFail(res, global.NOTLOGIN_ERROR, "类型错误",info);
+                util.resFail(res, global.NOTLOGIN_ERROR, "类型错误", info);
                 return;
             }
             resImgages.push(info);
@@ -443,7 +443,7 @@ exports.ProjectAdd = function (req, res) {
     }).then(function (data) {
 
         async.parallel([
-            function(callback){
+            function (callback) {
                 var count = 0;
                 if (query.infoList && query.infoList.length > 0) {
                     query.infoList.forEach(function (info) {
@@ -458,12 +458,12 @@ exports.ProjectAdd = function (req, res) {
                             }
                         })
                     })
-                }else {
+                } else {
                     callback(null);
                 }
             },
-            function(callback){
-                if( query.imgList && query.imgList.length > 0){
+            function (callback) {
+                if (query.imgList && query.imgList.length > 0) {
                     var count = 0;
                     query.imgList.forEach(function (img) {
                         models.Image.create({
@@ -477,15 +477,15 @@ exports.ProjectAdd = function (req, res) {
                             }
                         })
                     })
-                }else {
+                } else {
                     callback(null);
                 }
             }
-        ],function(err){console.log(12311)
-            if(err){
+        ], function (err) {
+            if (err) {
                 util.resFail(res, global.NOTLOGIN_ERROR, "新建项目出错：" + err);
-            }else {
-                util.resSuccess(res, "新建项目成功",data.id);
+            } else {
+                util.resSuccess(res, "新建项目成功", data.id);
             }
         })
 
@@ -538,7 +538,7 @@ exports.ProjectUpdate = function (req, res) {
             if (query.infoList && query.infoList.length > 0) {
                 var count = 0;
                 query.infoList.forEach(function (info) {
-                    if(info.id){
+                    if (info.id) {
                         models.ProjectInfo.update({
                             title: info.title,
                             content: info.content,
@@ -550,12 +550,13 @@ exports.ProjectUpdate = function (req, res) {
                                 callback(null);
                             }
                         })
-                    }else {
+                    } else {
                         models.ProjectInfo.create({
                             title: info.title,
                             content: info.content,
-                            index: info.index
-                        }).then(function(){
+                            index: info.index,
+                            projectId: query.id
+                        }).then(function () {
                             if (++count == query.infoList.length) {
                                 callback(null);
                             }
@@ -563,7 +564,7 @@ exports.ProjectUpdate = function (req, res) {
                     }
 
                 });
-            }else {
+            } else {
                 callback(null);
             }
         }, function (callback) {
@@ -576,11 +577,12 @@ exports.ProjectUpdate = function (req, res) {
                         }
                     })
                 })
-            }else {
+            } else {
                 callback(null);
             }
-        }, function(callback){console.log(query)
-            if( query.delImgList && query.delImgList.length > 0){console.log(12313)
+        }, function (callback) {
+            console.log(query)
+            if (query.delImgList && query.delImgList.length > 0) {
                 var count = 0;
                 query.delImgList.forEach(function (id) {
                     models.Image.destroy({where: {id: id}}).then(function () {
@@ -589,11 +591,11 @@ exports.ProjectUpdate = function (req, res) {
                         }
                     })
                 })
-            }else{
+            } else {
                 callback(null);
             }
-        }, function(callback){
-            if(query.addImgList && query.addImgList.length > 0){
+        }, function (callback) {
+            if (query.addImgList && query.addImgList.length > 0) {
                 var count = 0;
                 query.addImgList.forEach(function (img) {
                     models.Image.create({
@@ -607,7 +609,7 @@ exports.ProjectUpdate = function (req, res) {
                         }
                     })
                 })
-            }else{
+            } else {
                 callback(null);
             }
         }
@@ -656,7 +658,7 @@ exports.ProjectGetInfo = function (req, res) {
     }
     var id = req.query.id;
     var rdata = {};
-    async.parallel([function(callback){
+    async.parallel([function (callback) {
         models.Project.find({where: {id: id}}).then(function (pData) {
             Object.assign(rdata, pData.dataValues);
             models.ProjectInfo.findAll({
@@ -666,17 +668,15 @@ exports.ProjectGetInfo = function (req, res) {
                 callback(null);
             })
         });
-    },function(callback){
-        models.Image.findAll({where: { projectId : id}}).then(function(data){
+    }, function (callback) {
+        models.Image.findAll({where: {projectId: id}}).then(function (data) {
             rdata.imagesList = data;
             callback(null);
         })
-    }],function(err){
-        if(err){
-            console.log(12123)
+    }], function (err) {
+        if (err) {
             util.resFail(res, global.LOGIN_ERROR, "项目信息获取出错");
-        }else{
-            console.log(11111)
+        } else {
             util.resSuccess(res, "请求成功", rdata);
         }
     })
@@ -685,16 +685,3 @@ exports.ProjectGetInfo = function (req, res) {
 };
 //登录操作记录？
 
-//用户操作
-exports.GetProjectWithParams = function(req, res){
-    var count = parseInt(req.query.count) || 4 ;
-    var order = req.query.order || 'id desc';
-
-    models.Project.findAll({
-        order: order,
-        limit: count,
-        offset: 0
-    }).then(function(data){
-        util.resSuccess(res, "请求成功", data);
-    })
-};

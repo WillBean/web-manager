@@ -3,13 +3,13 @@
  */
 var admin = require('./admin');
 var util = require('./util');
+var custom = require('./custom');
 
 exports.startRoutes = function(app){
     this.app = app;
     //网站入口
-    app.get('/',function(req, res){
-        util.renderTemplate(res, '../web/index.html');
-    });
+    app.get('/',custom.RenderIndex); 
+    app.get('/case:id',custom.RenderCasePage);
 
     //管理程序
     app.get('/admin',admin.AdminIndex);
@@ -29,5 +29,5 @@ exports.startRoutes = function(app){
     app.get('/admin/project_update',admin.ProjectUpdate);
 
 //    用户接口
-    app.get('/user/getProjectWithParams',admin.GetProjectWithParams);
+//     app.get('/user/getProjectWithParams',admin.GetProjectWithParams);
 };
