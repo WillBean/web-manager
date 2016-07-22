@@ -16,7 +16,8 @@ app.set('view engine','ejs');
 app.set('views',__dirname+'/views');
 app.use(express.static(__dirname+'/static'));
 app.use('/static', express.static(__dirname+'/static'));
-app.use('/', express.static(__dirname+'/web'));
+app.use('/templates/static', express.static(__dirname+'/static'));//强行适配kindeditor
+app.use('/', express.static(__dirname+'/web')); 
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extend : false}));

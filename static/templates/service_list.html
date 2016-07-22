@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service List</title>
+    <link rel="stylesheet" href="../../css/admin_list.css">
+</head>
+<body>
+<div class="top-bar">
+    <a href="#" class="button" id="add_btn">+</a>
+    <h5>当前位置</h5>
+    <div class="breadcrumbs"><span>服务管理</span> - <span>服务列表</span></div>
+</div>
+<div class="description">
+    <form onsubmit="return false">
+        <label for="description">文字描述：</label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <input type="submit" value="保存" id="submit_btn">
+    </form>
+
+</div>
+<div class="table">
+    <table class="listing" cellpadding="0" cellspacing="0"><tbody>
+    <!--列表数据-->
+    </tbody></table>
+    <div id="Pagination" class="pagination">
+    </div>
+</div>
+
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/admin/service_list.js"></script>
+
+</body>
+</html>
+

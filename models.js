@@ -43,6 +43,43 @@ exports.Admin = sequelize.define(
     }
 );
 
+exports.News = sequelize.define(
+    'News',
+    {
+        title : {
+            type : Sequelize.STRING,
+            allowNull : false
+        },
+        description : {
+            type : Sequelize.STRING
+        }
+    },
+    {
+        tableName: 'wb_news',
+        timestamps: true,
+        deleteAt:false
+    }
+);
+
+exports.Article = sequelize.define(
+    'Article',
+    {
+        content : {
+            type: Sequelize.TEXT,
+            allowNull : false
+        },
+        newsId : {
+            type: Sequelize.INTEGER,
+            allowNull : false
+        }
+    },
+    {
+        tableName: 'wb_article',
+        timestamps: false,
+        deleteAt:false
+    }
+);
+
 exports.Project = sequelize.define(
     'Project',
     {
@@ -111,6 +148,70 @@ exports.Image = sequelize.define(
     }
 );
 
+exports.Service = sequelize.define(
+    'Service',
+    {
+        description : {
+            type: Sequelize.STRING
+        }
+    },
+    {
+        tableName: 'wb_service',
+        timestamps: false,
+        deleteAt:false
+    }
+);
+
+exports.ServiceItems = sequelize.define(
+    'ServiceItems',
+    {
+        title : {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        engName : {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        content: {
+            type: Sequelize.TEXT
+        }
+    },
+    {
+        tableName: 'wb_serviceItems',
+        timestamps: true,
+        deleteAt:false
+    }
+);
+
+exports.ServiceImages = sequelize.define(
+    "ServiceImages",
+    {
+        serviceId : {
+            type: Sequelize.INTEGER,
+            'allowNull': false
+        },
+        url:{
+            'type' : Sequelize.STRING,
+            'allowNull': false
+        },
+        name:{
+            type: Sequelize.STRING,
+            'allowNull': false
+        },
+        size:{
+            type: Sequelize.STRING,
+            'allowNull': false
+        }
+    },
+    {
+        tableName: 'wb_serviceImages',
+        timestamps: false,
+        deleteAt:false
+    }
+);
+
+
 this.Project.hasMany(this.ProjectInfo,{
     foreignKey : 'projectId'
 });
@@ -124,9 +225,23 @@ this.Image.belongsTo(this.Project,{
     foreignKey : 'projectId'
 });
 
-//sequelize.sync().then(function(){
+this.News.hasOne(this.Article,{
+    foreignKey : 'newsId'
+});
+this.Article.belongsTo(this.News,{
+    foreignKey : 'newsId'
+});
+
+this.ServiceItems.hasOne(this.ServiceImages,{
+    foreignKey : 'serviceId'
+});
+this.ServiceImages.belongsTo(this.ServiceItems,{
+    foreignKey : 'serviceId'
+});
+
+// sequelize.sync().then(function(){
 //    console.log('success');
-//});
+// });
 
 // var _this = this;
 // sequelize.sync({force: true}).then(function(){
@@ -137,6 +252,11 @@ this.Image.belongsTo(this.Project,{
 //        pwd : '21232f297a57a5a743894a0e4a801fc3',
 //        rights : 5
 //    }).then(function () {
-//        console.log('create success')
-//    })
+//        console.log('Admin create success')
+//    });
+//     _this.Service.create({
+//         content: ''
+//     }).then(function () {
+//         console.log('Service create success')
+//     })
 // });

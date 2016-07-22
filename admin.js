@@ -233,6 +233,7 @@ exports.kindeditorUploadImg = function (req, res) {
         }
         var image = files.imgFile;
         var path = image.path;
+        console.log(path)
         path = path.replace(/\\/g, '/');
         var url = path.substr(path.lastIndexOf('uploads'), path.length);
         var info = {
@@ -680,8 +681,237 @@ exports.ProjectGetInfo = function (req, res) {
             util.resSuccess(res, "请求成功", rdata);
         }
     })
+};
 
+exports.NewsInstance = function (req, res) {
+    if (!req.session.sess_admin) {
+        util.resFail(res, global.NOTLOGIN_ERROR, "尚未登录");
+        return;
+    }
+    if (req.method == 'POST') {//create or update
+        var body = req.body;
+        if (body.id) {//update
+            async.parallel([function (callback) {
+                models.News.update({
+                    where: {
+                        id: body.id
+                    }
+                }, {
+                    title: body.title,
+                    description: body.description
+                }).then(function () {
+                    callback(null)
+                })
+            }, function (callback) {
+                models.Article.update({
+                    where: {newsId: body.id}
+                }, {
+                    content: body.content
+                }).then(function () {
+                    callback(null);
+                })
+            }], function (err) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    util.resSuccess(res, "新聞更新成功");
+                }
+            })
+        } else { //create
+            models.News.create({
+                title: body.title,
+                description: body.description
+            }).then(function (data) {
+                models.Article.create({
+                    content: body.content,
+                    newsId: data.id
+                }).then(function () {
+                    util.resSuccess(res, "新聞創建成功");
+                })
+            }).catch(function (err) {
+                util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + err);
+                throw err
+            })
+        }
+    } else if (req.method == 'GET') {
+        var query = req.query;
+        if (query.id) { //獲取指定新聞
+            var res_data = [];
+            async.parallel([function (callback) {
+                models.News.find({where: {id: query.id}}).then(function (data) {
+                    res_data.news = data;
+                    callback(null)
+                })
+            }, function (callback) {
+                models.Article.find({where: {newsId: query.id}}).then(function (data) {
+                    res_data.article = data;
+                    callback(null)
+                })
+            }], function (err) {
+                if (err) {
+                    console.error(err)
+                } else {
+                    util.resSuccess(res, "新聞獲取成功", res_data);
+                }
+            })
+        } else { //獲取新聞列表
+            models.News.findAll({
+                order: "id desc"
+            }).then(function (data) {
+                var create_time = [],
+                    update_time = [];
+                for (var i in data) {
+                    var dt = new Date(data[i].createdAt);
+                    create_time.push(dt.format("yyyy-MM-dd hh:mm:ss"));
+                    dt = new Date(data[i].updatedAt);
+                    update_time.push(dt.format("yyyy-MM-dd hh:mm:ss"));
+                }
 
+                var res_data = {
+                    list: data,
+                    c_time: create_time,
+                    u_time: update_time
+                };
+                util.resSuccess(res, "新聞列表獲取成功", res_data);
+            })
+        }
+    } else if (req.method == 'DELETE') {//新聞刪除
+        models.News.destroy({where: {id: req.query.id}}).then(function () {
+            util.resSuccess(res, "新聞刪除成功");
+        })
+    }
+};
+
+exports.ServiceInstance = function (req, res) {//Service 對象唯一，不可刪除，不可增加
+    if (!req.session.sess_admin) {
+        util.resFail(res, global.NOTLOGIN_ERROR, "尚未登录");
+        return;
+    }
+    var body = req.body;
+    console.log(body);
+    if (req.method == "POST") {//更新
+        models.Service.update({
+            description: body.description
+        },{
+            where: {id: 1}
+        }).then(function () {
+            util.resSuccess(res, "服務更新成功");
+        }).catch(function (e) {
+            util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + e);
+            throw e
+        })
+    }else if(req.method == 'GET'){
+        models.Service.find({where:{id : 1}}).then(function (data) {
+            util.resSuccess(res, "服務獲取成功",data);
+        }).catch(function (e) {
+            util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + e);
+            throw e
+        })
+    }
+};
+
+exports.ServiceItemsInstance = function (req, res) {
+    if (!req.session.sess_admin) {
+        util.resFail(res, global.NOTLOGIN_ERROR, "尚未登录");
+        return;
+    }
+    if (req.method == "POST") {
+        var body = req.body;
+        if (body.id) {//更新
+            async.parallel([function (callback) {
+                models.ServiceItems.update({
+                    where: {id: body.id}
+                }, {
+                    title: body.title,
+                    engName: body.engName,
+                    content: body.content
+                }).then(function () {
+                    callback(null)
+                })
+            }, function (callback) {
+                var img = body.image;
+                models.ServiceImages.update({where: {serviceId: body.id}}, {
+                    name: img.name,
+                    url: img.url,
+                    size: img.size
+                }).then(function () {
+                    callback(null);
+                })
+            }], function (err) {
+                if (err) {
+                    util.resFail(res, global.LOGIN_ERROR, "服務項目創建出错:" + err);
+                } else {
+                    util.resSuccess(res, "服務項目創建成功");
+                }
+            })
+        } else {//創建
+            models.ServiceItems.create({
+                title: body.title,
+                engName: body.engName,
+                content: body.content
+            }).then(function (data) {
+                var img = body.image;
+                models.ServiceImages.create({
+                    serviceId: data.id,
+                    name: img.name,
+                    url: img.url,
+                    size: img.size
+                }).then(function () {
+                    util.resSuccess(res, "服務項目創建成功");
+                })
+            }).catch(function (e) {
+                util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + e);
+                throw e
+            })
+        }
+    } else if (req.method == "GET") {
+        var query = req.query;
+        if (query.id) {//獲取指定服務項目
+            var res_data = {};
+            async.parallel([function (callback) {
+                models.ServiceItems.find({where: {id: query.id}}).then(function (data) {
+                    res_data.service = data;
+                    callback(null)
+                })
+            }, function (callback) {
+                models.ServiceImages.find({where: {serviceId: query.id}}).then(function (data) {
+                    res_data.image = data;
+                    callback(null)
+                })
+            }], function (err) {
+                if (err) {
+                    util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + err);
+                    console.error(err)
+                } else {
+                    util.resSuccess(res, "服務項目獲取成功", res_data);
+                }
+            })
+        } else {//獲取服務項目列表
+            models.ServiceItems.findAll({
+                order: 'id desc'
+            }).then(function (data) {
+                var create_time = [],
+                    update_time = [];
+                for (var i in data) {
+                    var dt = new Date(data[i].createdAt);
+                    create_time.push(dt.format("yyyy-MM-dd hh:mm:ss"));
+                    dt = new Date(data[i].updatedAt);
+                    update_time.push(dt.format("yyyy-MM-dd hh:mm:ss"));
+                }
+
+                var res_data = {
+                    list: data,
+                    c_time: create_time,
+                    u_time: update_time
+                };
+                util.resSuccess(res, "服務項目列表獲取成功", res_data);
+            })
+        }
+    } else if (req.method == "DELETE") {//服務項目刪除
+        models.ServiceItems.destroy({where: {id: query.id}}).then(function () {
+            util.resSuccess(res, "服務項目刪除成功");
+        })
+    }
 };
 //登录操作记录？
 

@@ -23,8 +23,6 @@ exports.RenderIndex = function (req, res) {
     }).then(function (data) {
         res_data.projectList = data;
         var c = 0;
-        console.log(data);
-        console.log(data.length);
         data.forEach(function (pro) {
             models.Image.find({
                 where: {
@@ -33,7 +31,6 @@ exports.RenderIndex = function (req, res) {
             }).then(function(img){
                 res_data.imgList.push(img);
                 if( ++c == data.length){
-                    console.log(res_data)
                     util.renderTemplate(res, '../views/web/index.html', res_data);
                 }
             })

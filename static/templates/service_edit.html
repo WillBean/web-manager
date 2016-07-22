@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Edit</title>
+    <link rel="stylesheet" href="../../css/admin_list.css">
+
+</head>
+<body>
+<div class="top-bar">
+    <h5>当前位置</h5>
+    <div class="breadcrumbs"><span>服务管理</span> - <span>编辑服务</span></div>
+</div>
+<form class="admin-input" onsubmit="return false">
+    <div class="input">
+        <label for="title">服务标题：</label>
+        <input type="text" id="title" placeholder="请输入服务标题" required>
+    </div>
+    <div class="input">
+        <label for="engName">项目名（ENG)：</label>
+        <input type="text" id="engName" placeholder="请输入服务英文名" >
+    </div>
+    <div class="input">
+        <label for="content">描述内容：</label>
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+    </div>
+
+    <label for="imgUpload">一个服务只允许一个背景图</label>
+    <input type="file" id="imgUpload" class="imgUpload" accept="image/*">
+    <div class="images_list">
+        <table id="image-list">
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <input type="submit" class="add-submit" value="添加">
+
+</form>
+
+<script src="../../js/jquery.min.js"></script>
+
+<script src="../../js/admin/service_edit.js"></script>
+</body>
+</html>

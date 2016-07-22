@@ -21,13 +21,22 @@ exports.startRoutes = function(app){
     app.get('/admin/admin_update_pwd',admin.AdminUpdatePwd);
     app.get('/admin/admin_delete',admin.AdminDelete);
     app.post('/admin/fileUpload_uploadImg',admin.fileUploadUploadImg);
+    app.post('/admin/kindeditor_uploadImg',admin.kindeditorUploadImg);
     app.get('/admin/file_manager_json',admin.FileManagerJson);
     app.get('/admin/get_project_list',admin.ProjectList);
     app.get('/admin/get_project_info',admin.ProjectGetInfo);
     app.get('/admin/project_add',admin.ProjectAdd);
     app.get('/admin/project_delete',admin.ProjectDelete);
     app.get('/admin/project_update',admin.ProjectUpdate);
-
+    app.get('/admin/news_instance',admin.NewsInstance);
+    app.post('/admin/news_instance',admin.NewsInstance);
+    app.delete('/admin/news_instance',admin.NewsInstance);
+    app.post('/admin/service_instance',admin.ServiceInstance);
+    app.get('/admin/service_instance',admin.ServiceInstance);
+    app.post('/admin/service_items_instance',admin.ServiceItemsInstance);
+    app.get('/admin/service_items_instance',admin.ServiceItemsInstance);
+    app.delete('/admin/service_items_instance',admin.ServiceItemsInstance);
+    
 //    用户接口
 //     app.get('/user/getProjectWithParams',admin.GetProjectWithParams);
 };
