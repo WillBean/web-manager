@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News Edit</title>
+    <link rel="stylesheet" href="../../css/admin_list.css">
+
+</head>
+<body>
+<div class="top-bar">
+    <h5>当前位置</h5>
+    <div class="breadcrumbs"><span>新闻管理</span> - <span>编辑新闻</span></div>
+</div>
+<form class="admin-input" onsubmit="return false">
+    <div class="input">
+        <label for="title">新闻标题：</label>
+        <input type="text" id="title" placeholder="请输入新闻标题" required>
+    </div>
+    <div class="input">
+        <label for="description">新闻摘要：</label>
+        <input type="text" id="description" placeholder="请输入新闻摘要" >
+    </div>
+    <div class="input">
+        <label for="content">文章：</label>
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        <!--<input type="text" id="content" placeholder="请输入标题" >-->
+    </div>
+
+    <input type="submit" class="add-submit" value="添加">
+
+</form>
+
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/kindeditor/kindeditor-all-min.js"></script>
+<script src="../../js/kindeditor/lang/zh-CN.js"></script>
+
+<script src="../../js/admin/news_edit.js"></script>
+<script>
+
+</script>
+</body>
+</html>

@@ -15,6 +15,15 @@
     <form onsubmit="return false">
         <label for="description">文字描述：</label>
         <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <label for="imgUpload">背景图:</label>
+        <input type="file" id="imgUpload" class="imgUpload" accept="image/*">
+        <div class="images_list">
+            <table id="image-list">
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
         <input type="submit" value="保存" id="submit_btn">
     </form>
 

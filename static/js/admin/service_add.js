@@ -45,9 +45,11 @@
             var data = {
                 title: title,
                 engName: engName,
-                content: content,
-                image: resImages[0]
+                content: content
             };
+            if( resImages[0] ){
+                data.image = resImages[0]
+            }
 
             $('.add-submit').attr('disabled', true);
             $.ajax({

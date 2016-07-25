@@ -6,7 +6,8 @@
         var id = getSearchObj().id;
 
         $.getJSON('/admin/service_items_instance?id='+id+"&random="+Math.random(),function(res){
-            fillInputText(res.data.service,id);
+            console.log(res.data)
+            fillInputText(res.data,id);
         });
 
         $('.add-submit').click(function () {
@@ -111,10 +112,18 @@
         }
 
         function fillInputText(data, id) {
-            $('#title').val(data.title);
-            $('#engName').val(data.engName);
-            $('#content').val(data.content);
-            addImages(data.image)
+            $('#title').val(data.service.title);
+            $('#engName').val(data.service.engName);
+            $('#content').val(data.service.content);
+            var table = $('#image-list tbody');
+            var tr = "<tr>";
+            var src = 'http://' + location.host +'/'+ data.image.url;
+            tr += '<td><span class="preview"><img src='+ src +' style="width: 150px;height: auto"></span></td>';
+            tr += '<td><p>'+ data.image.name +'</p></td>';
+            tr += '<td><p>'+ data.image.size +'</p></td>';
+            tr += '<td><a href="javascript:void(0)" class="delete_btn" id="img_btn_ '+ data.image.id +' ">Delete</td>';
+            tr += '</tr>';
+            table.append(tr);
         }
     })
 })();

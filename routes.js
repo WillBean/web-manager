@@ -9,7 +9,12 @@ exports.startRoutes = function(app){
     this.app = app;
     //网站入口
     app.get('/',custom.RenderIndex); 
+    app.get('/case.html',custom.RenderCasePage);
     app.get('/case:id',custom.RenderCasePage);
+    app.get('/about.html',custom.RenderAbout);
+    app.get('/news.html',custom.RenderNews);
+    app.get('/news/:id',custom.RenderNewsItem);
+    app.get('/services.html',custom.RenderService);
 
     //管理程序
     app.get('/admin',admin.AdminIndex);

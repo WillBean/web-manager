@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!-- HTML5 Boilerplate -->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]>
+<html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]>
+<html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>NEWS - 新闻中心 | VASTEXPO</title>
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <meta name="MobileOptimized" content="320">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="robots" content="noarchive">
+
+    <link rel="stylesheet" href="../css/fonts/icomoon/style.css"
+          tppabs="http://vast-expo.com/home/css/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../css/animate-element.css" tppabs="http://vast-expo.com/home/css/animate-element.css">
+    <link rel="stylesheet" href="../css/flexslider.css" tppabs="http://vast-expo.com/home/css/flexslider.css">
+    <link rel="stylesheet" href="../css/style.css" tppabs="http://vast-expo.com/home/css/style.css">
+    <link rel="stylesheet" href="../css/news.css" tppabs="http://vast-expo.com/home/css/news.css">
+
+    <!--[if lt IE 9]>
+    <script src="../js/respond.min.js" tppabs="http://vast-expo.com/home/js/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/modernizr.custom.js" tppabs="http://vast-expo.com/home/js/modernizr.custom.js"></script>
+    <script src="../js/jquery-1.9.1.min.js" tppabs="http://vast-expo.com/home/js/jquery-1.9.1.min.js"></script>
+    <script src="../js/animate-elements.js" tppabs="http://vast-expo.com/home/js/animate-elements.js"></script>
+    <script src="../js/jquery.flexslider-min.js"
+            tppabs="http://vast-expo.com/home/js/jquery.flexslider-min.js"></script>
+    <script src="../js/plugins-min.js" tppabs="http://vast-expo.com/home/js/plugins-min.js"></script>
+    <script src="../js/site-min.js" tppabs="http://vast-expo.com/home/js/site-min.js"></script>
+
+    <!--  <link rel='canonical' href='http://vastexpo.com.cn/' />
+    <link rel='shortlink' href='http://vastexpo.com.cn/' />
+    -->
+</head>
+
+<body>
+<header class="anim_emt t_to_b">
+    <nav>
+        <a class="menu_btn icon-menu"></a>
+        <ul id="nav" class="trans">
+            <li class="trans1 "><a href="/case.html" class="trans"> 项目案例</a></li>
+
+            <li class="trans2 "><a href="services/" class="trans"> 服务范围</a></li>
+
+            <li class="trans3 "><a href="about/" class="trans"> 公司简介</a></li>
+
+            <li class="trans4 "><a href="news/" class="trans"> 企业新闻</a></li>
+
+            <li class="trans5 "><a href="liucheng/" class="trans"> 流程介绍</a></li>
+
+            <li class="trans6 "><a href="contact/" class="trans"> 联系我们</a></li>
+
+            <li class="trans7 "><a href="jobs/" class="trans"> 加入我们</a></li>
+
+            <li class="trans8 "><a href="EAVE/" class="trans">EAVE</a></li>
+        </ul>
+    </nav>
+
+    <a href="/" id="logo">
+        <img src="../home/images/logo.png" class="trans" alt="logo">
+        <h5 class="trans">HOME</h5>
+    </a>
+
+    <div class="title">
+        <h4> news</h4>
+    </div>
+    <div class="right-nav">
+        <div class="tags_nav hide_on_desktop">
+            <a class="tags_btn icon_btn icon-arrow-down3 trans"></a>
+            <ul>
+                <li>
+                    <a href="javascript:if(confirm('http://vast-expo.com/news  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://vast-expo.com/news'"
+                       tppabs="http://vast-expo.com/news" class="trans">全部</a></li>
+                <li class="cat-item cat-item-11"><a href="tags/company-news.htm"
+                                                    tppabs="http://vast-expo.com/news/tags/company-news">公司新闻</a>
+                </li>
+                <li class="cat-item cat-item-10"><a href="tags/activities-screenings.htm"
+                                                    tppabs="http://vast-expo.com/news/tags/activities-screenings">活动展映</a>
+                </li>
+                <li class="cat-item cat-item-9"><a href="tags/media-reports.htm"
+                                                   tppabs="http://vast-expo.com/news/tags/media-reports">媒体报道</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</header>
+
+<div class="wrap hwrap">
+    <section class="blog_cont blog_top">
+        <ul class="blog_list clearfix">
+            <% res_data.newsList.forEach(function( news, index) { %>
+            <li class="blog_list_item bg_white anim_emt b_to_t">
+                <a href="/news/<%= news.id %>" target="_blank" class="box_shadow trans">
+                    <div class="info">
+                        <h3 class="title trans"><%= news.title %></h3>
+                        <hr class="trans">
+                        <p><%= news.description %></p>
+                        <span><%= res_data.dateList[index] %></span>
+                    </div>
+                </a>
+            </li>
+            <% }) %>
+
+        </ul>
+    </section>
+    <section class="sidebar hide_on_mobile anim_emt b_to_t">
+        <h4>VastExpo</h4>
+        <h1>News</h1>
+        <hr class="full_hr">
+        <h3 class="mb10">Tags</h3>
+        <ul class="tags clearfix">
+            <li>
+                <a href="javascript:if(confirm('http://vast-expo.com/news  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://vast-expo.com/news'"
+                   tppabs="http://vast-expo.com/news" class="trans">全部文章</a></li>
+            <li class="cat-item cat-item-11"><a href="tags/company-news.htm"
+                                                tppabs="http://vast-expo.com/news/tags/company-news">公司新闻</a>
+            </li>
+            <li class="cat-item cat-item-10"><a href="tags/activities-screenings.htm"
+                                                tppabs="http://vast-expo.com/news/tags/activities-screenings">活动展映</a>
+            </li>
+            <li class="cat-item cat-item-9"><a href="tags/media-reports.htm"
+                                               tppabs="http://vast-expo.com/news/tags/media-reports">媒体报道</a>
+            </li>
+        </ul>
+
+    </section>
+</div>
+
+<script>
+    $(document).ready(function () {
+        tagsnav.init();
+        $('#nav>li.blog a').addClass('active');
+    })
+</script>
+
+<footer class="full vertical_obj bg_white mscroll">
+    <div class="vertical_cont contact anima_3d_top">
+        <div class="wrap">
+            <h2 class="c_red">GET IN TOUCH</h2>
+            <ul class="clearfix">
+                <li class="add">
+                    <a href="javascript:if(confirm('http://dwz.cn/2Tt54u  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://dwz.cn/2Tt54u'"
+                       tppabs="http://dwz.cn/2Tt54u" target="_blank" class="trans">
+                        <span class="icon icon-location c_red"></span>
+                        <h5 class="trans"><font face="微软雅黑">上海市行镇叶庄公路135号2幢349室</font></h5>
+                    </a>
+                </li>
+                <li class="tel">
+                    <a href="tel:86-21-57447292" target="_blank" class="trans">
+                        <span class="icon icon-phone c_red"></span>
+                        <h5 class="trans"><font face="微软雅黑">86-21-57447292</font></h5>
+                    </a>
+                </li>
+                <li class="mail">
+                    <a href="mailto:B@VASTEXPO.COM.CN" target="_blank" class="trans">
+                        <span class="icon icon-mail c_red"></span>
+                        <h5 class="trans"><font face="微软雅黑">B@VASTEXPO.COM.CN</font></h5>
+                    </a>
+                </li>
+                <li class="qq">
+                    <a href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=80623275&site=qq&menu=yes  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://wpa.qq.com/msgrd?v=3&uin=80623275&site=qq&menu=yes'"
+                       tppabs="http://wpa.qq.com/msgrd?v=3&uin=80623275&site=qq&menu=yes" target="_blank" class="trans">
+                        <span class="icon icon-qq c_red"></span>
+                        <h5 class="trans">在线咨询</h5>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="btm bg_red">
+        <ul id="botm_nav" class="wrap">
+            <li>
+                <a href="javascript:if(confirm('http://vast-expo.com/projects  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://vast-expo.com/projects'"
+                   tppabs="http://vast-expo.com/projects" class="trans">案例<br>PROJECTS</a>
+            </li>
+            <li>
+                <a href="javascript:if(confirm('http://vast-expo.com/services  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://vast-expo.com/services'"
+                   tppabs="http://vast-expo.com/services" class="trans">服务<br>SERVICES</a>
+            </li>
+            <li>
+                <a href="javascript:if(confirm('http://vast-expo.com/about  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://vast-expo.com/about'"
+                   tppabs="http://vast-expo.com/about" class="trans">关于我们<br>ABOUT US</a>
+            </li>
+            <li>
+                <a href="javascript:if(confirm('http://vast-expo.com/join-us  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://vast-expo.com/join-us'"
+                   tppabs="http://vast-expo.com/join-us" class="trans">加入我们<br>JOIN US</a>
+            </li>
+            <li>
+                <a href="javascript:if(confirm('http://vast-expo.com/news  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://vast-expo.com/news'"
+                   tppabs="http://vast-expo.com/news" class="trans">新闻<br>NEWS</a>
+            </li>
+        </ul>
+
+        <ul class="icp wrap">
+            <li>
+                <span><font face="微软雅黑">&copy; 2016 VASTEXPO</font></span><font face="微软雅黑">
+            </font>
+            </li>
+            <li>
+                <a href="javascript:if(confirm('http://www.miibeian.gov.cn/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://www.miibeian.gov.cn/'"
+                   tppabs="http://www.miibeian.gov.cn/" target="_blank">
+                    <font face="微软雅黑">沪ICP备16008753号-1</font></a><font face="微软雅黑">
+            </font>
+            </li>
+            <li>
+                <a href="javascript:if(confirm('http://lucuz.cn/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://lucuz.cn/'"
+                   tppabs="http://lucuz.cn/" target="_blank"><font face="微软雅黑">SITE BY: LUCUZ</font></a><font
+                    face="微软雅黑">
+            </font>
+            </li>
+        </ul>
+
+        <div class="icons bg_red">
+            <a href="javascript:if(confirm('http://weibo.com/u/+地址  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://weibo.com/u/+地址'"
+               tppabs="http://weibo.com/u/+地址" target="_blank" class="icon-weibo trans"></a>
+            <a href="javascript:" class="jsbtn icon-iconfont-qrcode trans" data-target="#qr-site"></a>
+            <a href="javascript:" class="jsbtn icon-wechat trans" data-target="#qr-wechat"></a>
+
+            <div id="qr-site" class="qrcode trans">
+                <img src="../home/images/qrcode-site.png" tppabs="http://vast-expo.com/home/images/qrcode-site.png"
+                     alt="">
+            </div>
+
+            <div id="qr-wechat" class="qrcode trans">
+                <img src="../home/images/qrcode-wechat.png" tppabs="http://vast-expo.com/home/images/qrcode-wechat.png"
+                     alt="">
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="bg_mask" class="pop_bg"></div>
+</body>
+</html>

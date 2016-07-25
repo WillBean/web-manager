@@ -45,6 +45,9 @@ exports.AdminLogin = function (req, res) {//管理员登录
         } else {
             util.resFail(res, global.LOGIN_ERROR, '用户名或密码错误');
         }
+    }).catch(function (e) {
+        util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + e);
+        throw e
     })
 };
 
@@ -104,6 +107,9 @@ exports.AdminUpdatePwd = function (req, res) {
         } else {
             util.resFail(res, global.PWD_UPDATE_ERROR, "原密码错误");
         }
+    }).catch(function (e) {
+        util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + e);
+        throw e
     })
 };
 
@@ -125,6 +131,9 @@ exports.AdminUpdateRight = function (req, res) {
         {rights: rights}
     ).then(function () {
         util.resSuccess(res, "更改权限成功");
+    }).catch(function (e) {
+        util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + e);
+        throw e
     })
 };
 
@@ -163,6 +172,9 @@ exports.AdminAdd = function (req, res) {
                 util.resSuccess(res, "添加管理员成功");
             })
         }
+    }).catch(function (e) {
+        util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + e);
+        throw e
     })
 };
 
@@ -193,6 +205,9 @@ exports.AdminDelete = function (req, res) {
                 })
             }
         }
+    }).catch(function (e) {
+        util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + e);
+        throw e
     })
 };
 
@@ -220,6 +235,9 @@ exports.AdminList = function (req, res) {
         };
 
         util.resSuccess(res, "请求成功", res_data);
+    }).catch(function (e) {
+        util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + e);
+        throw e
     })
 };
 
@@ -434,7 +452,7 @@ exports.ProjectAdd = function (req, res) {
     if (!query.cnName || query.cnName == '') {
         util.resFail(res, global.LOGIN_ERROR, "项目名不能为空");
     }
-    console.log(query);
+
     models.Project.create({
         cnName: query.cnName,
         engName: query.engName,
@@ -736,7 +754,7 @@ exports.NewsInstance = function (req, res) {
     } else if (req.method == 'GET') {
         var query = req.query;
         if (query.id) { //獲取指定新聞
-            var res_data = [];
+            var res_data = {};
             async.parallel([function (callback) {
                 models.News.find({where: {id: query.id}}).then(function (data) {
                     res_data.news = data;
@@ -790,9 +808,15 @@ exports.ServiceInstance = function (req, res) {//Service 對象唯一，不可�
     var body = req.body;
     console.log(body);
     if (req.method == "POST") {//更新
-        models.Service.update({
+        var data = {
             description: body.description
-        },{
+        };
+        if (body.image) {
+            data.name = body.image.name;
+            data.url = body.image.url;
+            data.size = body.image.size
+        }
+        models.Service.update(data, {
             where: {id: 1}
         }).then(function () {
             util.resSuccess(res, "服務更新成功");
@@ -800,9 +824,12 @@ exports.ServiceInstance = function (req, res) {//Service 對象唯一，不可�
             util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + e);
             throw e
         })
-    }else if(req.method == 'GET'){
-        models.Service.find({where:{id : 1}}).then(function (data) {
-            util.resSuccess(res, "服務獲取成功",data);
+
+    } else if (req.method == 'GET') {
+        var res_data = {};
+        models.Service.find({where: {id: 1}}).then(function (data) {
+            //res_data.service = data;
+            util.resSuccess(res, "服務獲取成功", data);
         }).catch(function (e) {
             util.resFail(res, global.NOTLOGIN_ERROR, "請求出錯：" + e);
             throw e
@@ -830,13 +857,17 @@ exports.ServiceItemsInstance = function (req, res) {
                 })
             }, function (callback) {
                 var img = body.image;
-                models.ServiceImages.update({where: {serviceId: body.id}}, {
-                    name: img.name,
-                    url: img.url,
-                    size: img.size
-                }).then(function () {
+                if (img) {
+                    models.ServiceImages.update({where: {serviceId: body.id}}, {
+                        name: img.name,
+                        url: img.url,
+                        size: img.size
+                    }).then(function () {
+                        callback(null);
+                    })
+                } else {
                     callback(null);
-                })
+                }
             }], function (err) {
                 if (err) {
                     util.resFail(res, global.LOGIN_ERROR, "服務項目創建出错:" + err);

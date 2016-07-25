@@ -44,20 +44,20 @@
 <header class="anim_emt t_to_b">
   <nav> <a class="menu_btn icon-menu">☰</a>
     <ul id="nav" class="trans">
-      <li class="trans1 "><a href="case/" class="trans"> 项目案例</a> </li>
-      
-      <li class="trans2 "><a href="services/" class="trans"> 服务范围</a> </li>
-      
-      <li class="trans3 "><a href="about/" class="trans"> 公司简介</a> </li>
-      
-      <li class="trans4 "><a href="team/" class="trans"> 团队介绍</a> </li>
-      
+      <li class="trans1 "><a href="/case.html" class="trans"> 项目案例</a> </li>
+
+      <li class="trans2 "><a href="services.html" class="trans"> 服务范围</a> </li>
+
+      <li class="trans3 "><a href="about.html" class="trans"> 公司简介</a> </li>
+
+      <li class="trans4 "><a href="news.html" class="trans"> 企业新闻</a> </li>
+
       <li class="trans5 "><a href="liucheng/" class="trans"> 流程介绍</a> </li>
-      
+
       <li class="trans6 "><a href="contact/" class="trans"> 联系我们</a> </li>
-      
+
       <li class="trans7 "><a href="jobs/" class="trans"> 加入我们</a> </li>
-      
+
       <li class="trans8 "><a href="EAVE/" class="trans">EAVE</a> </li>
     </ul>
   </nav>
@@ -113,7 +113,7 @@
       <h2 class="anim_emt b_to_t">Projects</h2>
       <ul class="clearfix anima_3d_top anim_emt b_to_t">
         <% res_data.projectList.forEach(function(pro,index){ %>
-        <li> <a href="case/11.html" class="box_shadow trans"> <img src="<%= res_data.imgList[index].url %>" alt="" class="trans">
+        <li> <a href="/case<%= pro.id %>" class="box_shadow trans"> <img src="<%= res_data.imgList[index].url %>" alt="" class="trans">
           <div class="title">
             <h5 class="mb5 trans"><%= pro.cnName %></h5>
             <h5 class="hide_in_mobile trans"><%= pro.engName %></h5>

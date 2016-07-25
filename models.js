@@ -149,9 +149,18 @@ exports.Image = sequelize.define(
 );
 
 exports.Service = sequelize.define(
-    'Service',
+    'Service',//自带image
     {
         description : {
+            type: Sequelize.STRING
+        },
+        url:{
+            'type' : Sequelize.STRING
+        },
+        name:{
+            type: Sequelize.STRING
+        },
+        size:{
             type: Sequelize.STRING
         }
     },

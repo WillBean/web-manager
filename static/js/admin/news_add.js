@@ -7,7 +7,10 @@
             window.editor = K.create('#content',{
                 uploadJson : '/admin/kindeditor_uploadImg',
                 fileManagerJson : '/admin/file_manager_json',
-                allowFileManager : true
+                allowFileManager : true,
+                width:"1000px",
+                height:"400px",
+                filterMode : false
             });
         });
 
