@@ -99,30 +99,7 @@
     <div class="wrap overflow_v fullw_on_mobile">
         <div class="body anim_emt b_to_t" id="content">
             <h4>< <%= res_data.news.title %> ></h4>
-            <% var arr = res_data.article.content.split('\n'); %>
-            <!--<% arr.forEach(function( art, index ){ %>-->
-            <!--<p><%= art %></p>-->
-            <% }) %>
-            <%
-
-            function coder(str) {
-            var s = "";
-            if (str.length == 0) return "";
-            for (var i = 0; i < str.length; i++) {
-            switch (str.substr(i, 1)) {
-            case "<": s += "&lt;"; break;
-            case ">": s += "&gt;"; break;
-            case "&": s += "&amp;"; break;
-            case " ": s += "&nbsp;"; break;
-            case "\"": s += "&quot;"; break;
-            default: s += str.substr(i, 1); break;
-            }
-            }
-            return s;
-            }
-
-            %>
-            <%= coder(res_data.article.content) %>
+            <%- (res_data.article.content) %>
         </div>
     </div>
 </section>
@@ -130,7 +107,7 @@
 <script>
     $(document).ready(function () {
         tagsnav.init();
-    })
+    });
 </script>
 
 <script type="text/javascript" charset="utf-8" src="../../../static.bshare.cn/b/buttonLite.js#uuid=&style=-1"

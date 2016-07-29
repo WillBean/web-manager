@@ -711,20 +711,20 @@ exports.NewsInstance = function (req, res) {
         if (body.id) {//update
             async.parallel([function (callback) {
                 models.News.update({
+                    title: body.title,
+                    description: body.description
+                },{
                     where: {
                         id: body.id
                     }
-                }, {
-                    title: body.title,
-                    description: body.description
                 }).then(function () {
                     callback(null)
                 })
             }, function (callback) {
                 models.Article.update({
-                    where: {newsId: body.id}
-                }, {
                     content: body.content
+                },{
+                    where: {newsId: body.id}
                 }).then(function () {
                     callback(null);
                 })

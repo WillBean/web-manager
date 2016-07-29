@@ -27,6 +27,7 @@
             var content = $('#content').val().trim(),
                 description = $('#description').val().trim();
             $('.add-submit').attr('disabled', true);
+            console.log(editor.html('#content'));
             var data = {
                 title : title,
                 content : content,
